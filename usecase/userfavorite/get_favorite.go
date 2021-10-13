@@ -5,18 +5,17 @@ import (
 	"fmt"
 
 	"github.com/phamtrung99/gopkg/middleware"
-	"github.com/phamtrung99/user-service/model"
-	"github.com/phamtrung99/user-service/util/myerror"
-	"github.com/phamtrung99/movie-service/model"
+	moviemodel "github.com/phamtrung99/movie-service/model"
+	moviemyerror "github.com/phamtrung99/movie-service/util/myerror"
 )
 
 type UserFavorRequest struct {
-	Paginator *model.Paginator
+	Paginator *moviemodel.Paginator
 	OrderBy   string `json:"order_by,omitempty" query:"order_by"`
 	OrderType string `json:"order_type,omitempty" query:"order_type"`
 }
 
-func (u *Usecase) GetFavoriteMovie(ctx context.Context, req UserFavorRequest) (*model.MovieResult, error) {
+func (u *Usecase) GetFavoriteMovie(ctx context.Context, req UserFavorRequest) (*moviemodel.MovieResult, error) {
 
 	//Get current userId from Token.
 	claim := middleware.GetClaim(ctx)
@@ -25,7 +24,7 @@ func (u *Usecase) GetFavoriteMovie(ctx context.Context, req UserFavorRequest) (*
 	listMovieID, err := u.userFavorRepo.GetListMovieIDByUserID(ctx, userID)
 
 	if err != nil {
-		return &model.MovieResult{}, err
+		return &moviemodel.MovieResult{}, err
 	}
 
 	//Order
@@ -35,7 +34,7 @@ func (u *Usecase) GetFavoriteMovie(ctx context.Context, req UserFavorRequest) (*
 	}
 
 	//Paging
-	paginator := &model.Paginator{
+	paginator := &moviemodel.Paginator{
 		Page:  1,
 		Limit: 20,
 	}
@@ -50,12 +49,12 @@ func (u *Usecase) GetFavoriteMovie(ctx context.Context, req UserFavorRequest) (*
 		conditionValue[i] = m
 	}
 
-	conditions := []model.Condition{{Pattern: "movie_id", Values: conditionValue}}
+	conditions := []moviemodel.Condition{{Pattern: "movie_id", Values: conditionValue}}
 
 	movieResult, err := u.movieRepo.Find(ctx, conditions, paginator, orders)
 
 	if err != nil {
-		return nil, myerror.ErrGetMovie(err)
+		return nil, moviemyerror.ErrGetMovie(err)
 	}
 
 	return movieResult, nil

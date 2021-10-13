@@ -12,7 +12,8 @@ import (
 	checkform "github.com/phamtrung99/movie-service/package/checkForm"
 	imgvalid "github.com/phamtrung99/movie-service/package/fileValid"
 	"github.com/phamtrung99/user-service/util/myerror"
-	"github.com/phamtrung99/auth-service/util/myerror"
+	authmyerror"github.com/phamtrung99/auth-service/util/myerror"
+	moviemyerror"github.com/phamtrung99/movie-service/util/myerror"
 )
 
 type UpdateInfoRequest struct {
@@ -37,11 +38,11 @@ func (u *Usecase) Update(ctx context.Context, req UpdateInfoRequest) (*model.Use
 		if user.Email != formEmail {
 			isMail, email := checkform.CheckFormatValue("email", formEmail)
 			if !isMail {
-				return nil, myerror.ErrEmailFormat(nil)
+				return nil, authmyerror.ErrEmailFormat(nil)
 			}
 
 			if u.userRepo.CheckEmailExist(ctx, email) {
-				return nil, myerror.ErrExistedEmail(nil)
+				return nil, authmyerror.ErrExistedEmail(nil)
 			}
 
 			user.Email = email
@@ -53,7 +54,7 @@ func (u *Usecase) Update(ctx context.Context, req UpdateInfoRequest) (*model.Use
 		isName, fullName := checkform.CheckFormatValue("full_name", req.FormData.Value["full_name"][0])
 
 		if !isName {
-			return &model.User{}, myerror.ErrFullNameFormat(nil)
+			return &model.User{}, authmyerror.ErrFullNameFormat(nil)
 		}
 
 		user.FullName = fullName
@@ -62,7 +63,7 @@ func (u *Usecase) Update(ctx context.Context, req UpdateInfoRequest) (*model.Use
 	if len(req.FormData.Value["age"]) != 0 {
 		isAge, ageStr := checkform.CheckFormatValue("age", req.FormData.Value["age"][0])
 		if !isAge {
-			return &model.User{}, myerror.ErrAgeFormat(nil)
+			return &model.User{}, moviemyerror.ErrAgeFormat(nil)
 		}
 
 		age, _ := strconv.Atoi(ageStr)

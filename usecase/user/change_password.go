@@ -7,6 +7,7 @@ import (
 	"github.com/phamtrung99/auth-service/package/auth"
 	checkform "github.com/phamtrung99/movie-service/package/checkForm"
 	"github.com/phamtrung99/user-service/util/myerror"
+	authmyerror"github.com/phamtrung99/auth-service/util/myerror"
 )
 
 type ChangePasswRequest struct {
@@ -45,13 +46,13 @@ func (u *Usecase) ChangePassword(ctx context.Context, req ChangePasswRequest) er
 	isPassTrue := auth.VerifyPassword(oldPwd, user.Password)
 
 	if !isPassTrue {
-		return myerror.ErrInvalid(nil)
+		return authmyerror.ErrInvalid(nil)
 	}
 
 	passHash, err := auth.HashPassword(newPwd)
 
 	if err != nil {
-		return myerror.ErrHashPassword(err)
+		return authmyerror.ErrHashPassword(err)
 	}
 
 	user.Password = passHash
