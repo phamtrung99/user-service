@@ -5,7 +5,7 @@ go 1.17
 
 require (
 	github.com/labstack/echo/v4 v4.6.1
-	github.com/phamtrung99/auth-service v0.0.0-20211013023038-8b83da121b6d
+	github.com/phamtrung99/auth-service v0.0.0-20211013061006-89b1e6ce1b24
 	github.com/phamtrung99/gopkg v0.0.0-20211004070841-b3b9f1a32ca6
 	github.com/phamtrung99/movie-service v0.0.0-20211013040608-a8d7c3f33b43
 	github.com/pkg/errors v0.9.1
