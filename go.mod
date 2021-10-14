@@ -7,7 +7,7 @@ require (
 	github.com/labstack/echo/v4 v4.6.1
 	github.com/phamtrung99/auth-service v0.0.0-20211013061006-89b1e6ce1b24
 	github.com/phamtrung99/gopkg v0.0.0-20211004070841-b3b9f1a32ca6
-	github.com/phamtrung99/movie-service v0.0.0-20211013040608-a8d7c3f33b43
+	github.com/phamtrung99/movie-service v0.0.0-20211014062746-a0fbda3681fd
 	github.com/pkg/errors v0.9.1
 	gorm.io/gorm v1.21.16
 )
@@ -35,8 +35,8 @@ require (
 	github.com/valyala/bytebufferpool v1.0.0 // indirect
 	github.com/valyala/fasttemplate v1.2.1 // indirect
 	golang.org/x/crypto v0.0.0-20210921155107-089bfa567519 // indirect
-	golang.org/x/net v0.0.0-20211008194852-3b03d305991f // indirect
-	golang.org/x/sys v0.0.0-20211007075335-d3039528d8ac // indirect
+	golang.org/x/net v0.0.0-20211013171255-e13a2654a71e // indirect
+	golang.org/x/sys v0.0.0-20211013075003-97ac67df715c // indirect
 	golang.org/x/text v0.3.7 // indirect
 	golang.org/x/time v0.0.0-20210723032227-1f47c861a9ac // indirect
 	golang.org/x/xerrors v0.0.0-20200804184101-5ec99f83aff1 // indirect
