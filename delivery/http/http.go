@@ -20,7 +20,8 @@ func NewHTTPHandler(repo *repository.Repository, ucase *usecase.UseCase) *echo.E
 	skipper := func(c echo.Context) bool {
 		p := c.Request().URL.Path
 
-		return strings.Contains(p, "/health_check")
+		return strings.Contains(p, "/health_check") ||
+		strings.Contains(p, "/login")
 	}
 
 	e.Use(middleware.Auth(cfg.Jwt.Key, skipper, false))
