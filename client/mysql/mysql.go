@@ -8,7 +8,7 @@ import (
 
 	"github.com/phamtrung99/gopkg/logger"
 	"github.com/phamtrung99/gopkg/utils"
-	"github.com/phamtrung99/movie-service/config"
+	"github.com/phamtrung99/user-service/config"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 	"gorm.io/plugin/dbresolver"

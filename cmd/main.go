@@ -7,7 +7,7 @@ import (
 
 	"github.com/phamtrung99/user-service/client/mysql"
 	"github.com/phamtrung99/user-service/config"
-	"github.com/phamtrung99/movie-service/migration"
+	"github.com/phamtrung99/user-service/migration"
 	serviceHttp "github.com/phamtrung99/user-service/delivery/http"
 	"github.com/phamtrung99/user-service/repository"
 	"github.com/phamtrung99/user-service/usecase"
