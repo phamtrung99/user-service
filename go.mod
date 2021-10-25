@@ -5,7 +5,7 @@ go 1.17
 
 require (
 	github.com/labstack/echo/v4 v4.6.1
-	github.com/phamtrung99/auth-service v0.0.0-20211013061006-89b1e6ce1b24
+	github.com/phamtrung99/auth-service v0.0.0-20211015091842-2a42d22d70af
 	github.com/phamtrung99/gopkg v0.0.0-20211004070841-b3b9f1a32ca6
 	github.com/phamtrung99/movie-service v0.0.0-20211014062746-a0fbda3681fd
 	github.com/pkg/errors v0.9.1
@@ -20,6 +20,7 @@ require (
 	github.com/getsentry/sentry-go v0.11.0 // indirect
 	github.com/go-sql-driver/mysql v1.6.0 // indirect
 	github.com/golang-jwt/jwt v3.2.2+incompatible // indirect
+	github.com/golang/protobuf v1.5.2 // indirect
 	github.com/google/uuid v1.3.0 // indirect
 	github.com/jinzhu/inflection v1.0.0 // indirect
 	github.com/jinzhu/now v1.1.2 // indirect
@@ -40,6 +41,8 @@ require (
 	golang.org/x/text v0.3.7 // indirect
 	golang.org/x/time v0.0.0-20210723032227-1f47c861a9ac // indirect
 	golang.org/x/xerrors v0.0.0-20200804184101-5ec99f83aff1 // indirect
+	google.golang.org/genproto v0.0.0-20200526211855-cb27e3aa2013 // indirect
+	google.golang.org/grpc v1.27.0 // indirect
 	google.golang.org/protobuf v1.27.1 // indirect
 	gopkg.in/DataDog/dd-trace-go.v1 v1.33.0 // indirect
 	gorm.io/driver/mysql v1.1.2 // indirect

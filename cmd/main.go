@@ -5,8 +5,8 @@ import (
 	"net"
 	"time"
 
-	"github.com/phamtrung99/movie-service/client/mysql"
-	"github.com/phamtrung99/movie-service/config"
+	"github.com/phamtrung99/user-service/client/mysql"
+	"github.com/phamtrung99/user-service/config"
 	"github.com/phamtrung99/movie-service/migration"
 	serviceHttp "github.com/phamtrung99/user-service/delivery/http"
 	"github.com/phamtrung99/user-service/repository"

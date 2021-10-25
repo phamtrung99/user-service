@@ -15,6 +15,7 @@ func Init(group *echo.Group, useCase *usecase.UseCase) {
 		userUseCase: useCase.User,
 	}
 
+	group.POST("/login", r.Login)
 	group.GET("/me", r.GetMe)
 	group.PUT("/me", r.Update)
 	group.POST("/changepassword", r.ChangePassword)
