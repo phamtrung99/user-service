@@ -7,13 +7,13 @@ import (
 	"strconv"
 	"strings"
 
+	authmyerror "github.com/phamtrung99/auth-service/util/myerror"
 	"github.com/phamtrung99/gopkg/middleware"
-	"github.com/phamtrung99/user-service/model"
 	checkform "github.com/phamtrung99/movie-service/package/checkForm"
 	imgvalid "github.com/phamtrung99/movie-service/package/fileValid"
+	moviemyerror "github.com/phamtrung99/movie-service/util/myerror"
+	"github.com/phamtrung99/user-service/model"
 	"github.com/phamtrung99/user-service/util/myerror"
-	authmyerror"github.com/phamtrung99/auth-service/util/myerror"
-	moviemyerror"github.com/phamtrung99/movie-service/util/myerror"
 )
 
 type UpdateInfoRequest struct {
@@ -73,8 +73,7 @@ func (u *Usecase) Update(ctx context.Context, req UpdateInfoRequest) (*model.Use
 	if len(req.FormData.File["avatar"]) != 0 {
 
 		file := req.FormData.File["avatar"][0]
-		var imgFileName = "blank.png"
-		var pathFile = "/public/avatar/"
+		pathFile := "/public/avatar/"
 
 		filetype, err := imgvalid.CheckImage(file)
 
@@ -82,7 +81,7 @@ func (u *Usecase) Update(ctx context.Context, req UpdateInfoRequest) (*model.Use
 			return &model.User{}, err
 		}
 
-		imgFileName = strconv.FormatInt(user.ID, 10) + "." + strings.Split(filetype, "/")[1]
+		imgFileName := strconv.FormatInt(user.ID, 10) + "." + strings.Split(filetype, "/")[1]
 
 		err = imgvalid.CopyFile(file, imgFileName, "."+pathFile)
 

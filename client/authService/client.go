@@ -18,7 +18,6 @@ var (
 )
 
 func init() {
-
 	conn, err := grpc.Dial(
 		os.Getenv("ENDPOINT"),
 		grpc.WithInsecure(),
