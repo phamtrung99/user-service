@@ -1,7 +1,7 @@
 #  User Service
 :star: Star me on GitHub — it motivates me a lot!
 
-[Auth service]() is an Restful-APIs, build by Golang language.
+[User service]() is an Restful-APIs, build by Golang language.
 
 
 ## Prerequisites
